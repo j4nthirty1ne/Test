@@ -302,4 +302,20 @@ public class OrderService {
     public boolean isCartEmpty() {
         return cart.isEmpty();
     }
+
+    public void displayTotalAmount() {
+        double totalAmount = 0;
+        for (Map<String, Object> item : cart) {
+            totalAmount += (double) item.get("sell_price") * (int) item.get("quantity") * (1 - (double) item.get("discount"));
+        }
+        System.out.printf("Total Amount: $%.2f%n", totalAmount);
+    }
+
+    public double getTotalAmount() {
+        double totalAmount = 0;
+        for (Map<String, Object> item : cart) {
+            totalAmount += (double) item.get("sell_price") * (int) item.get("quantity") * (1 - (double) item.get("discount"));
+        }
+        return totalAmount;
+    }
 }

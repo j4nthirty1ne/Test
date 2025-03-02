@@ -32,6 +32,10 @@ dependencies {
     // JDBC PostgreSQL
     implementation 'org.postgresql:postgresql:42.2.24'
 
+    //
+    implementation 'org.json:json:20230227'
+
+
 }
 
 test {

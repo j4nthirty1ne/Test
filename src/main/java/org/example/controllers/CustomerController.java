@@ -1,9 +1,16 @@
 package org.example.controllers;
+
+import com.google.zxing.WriterException;
 import org.example.services.OrderService;
+import org.example.services.PaymentService;
+import org.example.services.QRCode;
+import org.example.services.QRCodeSwingUI;
+
+import javax.swing.*;
+import java.awt.image.BufferedImage;
 import java.util.*;
 
 import static org.example.services.MenuItemManager.viewMenuItemsCustomer;
-
 
 public class CustomerController {
     private Scanner scanner = new Scanner(System.in);
@@ -84,7 +91,6 @@ public class CustomerController {
 
     private void viewCartWithEditOptions() {
         while (true) {
-            int orderId = 123;
             orderService.viewCart();
             if (orderService.isCartEmpty()) {
                 System.out.println("Your cart is empty. Nothing to edit.");
@@ -144,31 +150,94 @@ public class CustomerController {
         }
     }
 
+//    private void confirmAndPay() {
+//        if (orderService.isCartEmpty()) {
+//            System.out.println("Your cart is empty. Add items before proceeding to payment.");
+//            return;
+//        }
+//
+//        orderService.viewCart();
+//        orderService.displayTotalAmount();  // Show total amount before confirming payment
+//
+//        if (!confirmOrder()) {
+//            System.out.println("Order canceled.");
+//            return;
+//        }
+//
+//        System.out.println("\n--- Payment Process ---");
+//        System.out.println("Payment Methods: 1. KHQR");
+//
+//        int paymentMethod = validateIntegerInput("Enter payment method (1 for QR Code): ", 1, 1);
+//        int orderId = orderService.placeOrder(paymentMethod);
+//        if (orderId == -1) {
+//            System.out.println("Failed to place order. Please try again.");
+//            return;
+//        }
+//
+//        if (orderService.processPayment(orderId, paymentMethod)) {
+//            orderService.generateReceipt(orderId, paymentMethod);
+//            System.out.println("Payment successful. Thank you for your order!");
+//
+//            // Generate and display QR code
+//            QRCode qrCode = new QRCode();
+//            try {
+//                qrCode.generateAndDisplayQRCode();
+//            } catch (WriterException e) {
+//                System.err.println("Error generating QR Code: " + e.getMessage());
+//                e.printStackTrace();
+//            }
+//        } else {
+//            System.out.println("Payment failed. Please check your balance or try again.");
+//        }
+//        orderService.clearCart();
+//    }
+
     private void confirmAndPay() {
+        if (orderService.isCartEmpty()) {
+            System.out.println("Your cart is empty. Add items before proceeding to payment.");
+            return;
+        }
+
         orderService.viewCart();
+        orderService.displayTotalAmount();
+
         if (!confirmOrder()) {
             System.out.println("Order canceled.");
             return;
         }
 
         System.out.println("\n--- Payment Process ---");
-        System.out.println("Payment Methods: KHQR");
+        System.out.println("Payment Method: KHQR");
 
-        int paymentMethod = validateIntegerInput("Enter payment method (1 for QR Code): ", 1, 1);
-        int orderId = orderService.placeOrder(paymentMethod);
+        int orderId = orderService.placeOrder(1); // 1 represents KHQR
         if (orderId == -1) {
             System.out.println("Failed to place order. Please try again.");
             return;
         }
 
-        if (orderService.processPayment(orderId, paymentMethod)) {
-            orderService.generateReceipt(orderId, paymentMethod);
-            System.out.println("Payment successful. Thank you for your order!");
-        } else {
-            System.out.println("Payment failed. Please try again.");
+        double totalAmount = orderService.getTotalAmount();
+        PaymentService paymentService = new PaymentService();
+
+        int transactionId = paymentService.initiatePayment(orderId, totalAmount);
+        if (transactionId == -1) {
+            System.out.println("❌ Failed to initiate payment. Please try again.");
+            return;
         }
-        orderService.clearCart();
+
+        // Generate KHQR Code
+        QRCode qrCode = new QRCode();
+        BufferedImage qrImage;
+        try {
+            qrImage = qrCode.generateQRImage(paymentService.getKHQR(transactionId), 300, 300);
+        } catch (Exception e) {
+            System.out.println("Error generating QR Code: " + e.getMessage());
+            return;
+        }
+
+        // Launch Swing UI for KHQR Payment
+        SwingUtilities.invokeLater(() -> new QRCodeSwingUI(transactionId, qrImage));
     }
+
 
     private boolean confirmOrder() {
         System.out.print("Do you want to confirm your order? (y/n): ");

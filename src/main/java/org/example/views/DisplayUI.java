@@ -5,15 +5,13 @@ import org.example.controllers.Staff;
 import org.example.services.OrderService;
 import org.example.services.Utils;
 
-import java.util.List;
-import java.util.Map;
 import java.util.Scanner;
 
 
 
 
 public class DisplayUI {
-    public static void displayUI(List<Map<String, Object>> menuItems) {
+    public static void displayUI() {
         Scanner scanner = new Scanner(System.in);
         OrderService orderService = new OrderService(); // Ensure menuItems is passed
 
@@ -48,7 +46,7 @@ public class DisplayUI {
                     break;
                 case 5:
                     System.out.println("Exiting... Thank you for using our system!");
-                    scanner.close();  // Close scanner before exiting
+                    scanner.close();
                     return;
                 default:
                     System.out.println("Invalid choice! Please try again.");

@@ -2,10 +2,7 @@ package org.example.controllers;
 
 import java.util.Scanner;
 
-import org.example.services.StaffManager;
-import org.example.services.Utils;
-import org.example.services.MenuItemManager;
-import org.example.services.CategoryManager;
+import org.example.services.*;
 import org.example.views.DisplayUI;
 
 public class AdminController {
@@ -22,11 +19,12 @@ public class AdminController {
             System.out.println("5. Display Items by Category");
             System.out.println("6. Manage Categories");
             System.out.println("7. Manage Staff");
-            System.out.println("8. Exit");
+            System.out.println("8. Report Menu");
+            System.out.println("9. Exit");
 
             // ------------ Validate menu choice ------------
 
-            int choice = Utils.validateIntegerInput(scanner, "Enter your choice ([b] to go back): ", 1, 8);
+            int choice = Utils.validateIntegerInput(scanner, "Enter your choice ([b] to go back): ", 1, 9);
             if (choice == -1) continue;
 
             switch (choice) {
@@ -58,7 +56,11 @@ public class AdminController {
                     StaffManager.manageStaff(scanner);
                     break;
                 case 8:
-                    new DisplayUI().displayUI(MenuItemManager.getAllMenuItems());
+                    ReportManager.manageReports();
+                    break;
+                case 9:
+                    DisplayUI.displayUI();
+                    break;
                 default:
                     System.out.println("Invalid choice. Please try again.");
             }

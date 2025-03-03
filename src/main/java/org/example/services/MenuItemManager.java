@@ -28,25 +28,25 @@ public class MenuItemManager {
                         }
                         currentCategory = category;
                         System.out.println("\n--- " + currentCategory + " ---");
-                        table = new Table(8, BorderStyle.DOTS, ShownBorders.ALL);
-                        table.addCell("No.", new CellStyle(CellStyle.HorizontalAlign.center));
-                        table.addCell("Name", new CellStyle(CellStyle.HorizontalAlign.center));
-                        table.addCell("Description", new CellStyle(CellStyle.HorizontalAlign.center));
-                        table.addCell("Item ID", new CellStyle(CellStyle.HorizontalAlign.center));
-                        table.addCell("Size", new CellStyle(CellStyle.HorizontalAlign.center));
-                        table.addCell("Base Price", new CellStyle(CellStyle.HorizontalAlign.center));
-                        table.addCell("Sell Price", new CellStyle(CellStyle.HorizontalAlign.center));
-                        table.addCell("Discount", new CellStyle(CellStyle.HorizontalAlign.center));
+                        table = new Table(8, BorderStyle.UNICODE_ROUND_BOX_WIDE, ShownBorders.ALL);
+                        table.addCell("No.", new CellStyle(CellStyle.HorizontalAlign.CENTER));
+                        table.addCell("Name", new CellStyle(CellStyle.HorizontalAlign.CENTER));
+                        table.addCell("Description", new CellStyle(CellStyle.HorizontalAlign.CENTER));
+                        table.addCell("Item ID", new CellStyle(CellStyle.HorizontalAlign.CENTER));
+                        table.addCell("Size", new CellStyle(CellStyle.HorizontalAlign.CENTER));
+                        table.addCell("Base Price", new CellStyle(CellStyle.HorizontalAlign.CENTER));
+                        table.addCell("Sell Price", new CellStyle(CellStyle.HorizontalAlign.CENTER));
+                        table.addCell("Discount", new CellStyle(CellStyle.HorizontalAlign.CENTER));
                         count = 1; // Reset count for new category
                     }
-                    table.addCell(String.valueOf(count++), new CellStyle(CellStyle.HorizontalAlign.center));
-                    table.addCell(rs.getString("name"), new CellStyle(CellStyle.HorizontalAlign.center));
-                    table.addCell(rs.getString("description"), new CellStyle(CellStyle.HorizontalAlign.center));
-                    table.addCell(String.valueOf(rs.getInt("item_id")), new CellStyle(CellStyle.HorizontalAlign.center));
-                    table.addCell(rs.getString("size"), new CellStyle(CellStyle.HorizontalAlign.center));
-                    table.addCell(String.format("$%.2f", rs.getDouble("base_price")), new CellStyle(CellStyle.HorizontalAlign.center));
-                    table.addCell(String.format("$%.2f", rs.getDouble("sell_price")), new CellStyle(CellStyle.HorizontalAlign.center));
-                    table.addCell(String.format("$%.2f", rs.getDouble("discount")), new CellStyle(CellStyle.HorizontalAlign.center));
+                    table.addCell(String.valueOf(count++), new CellStyle(CellStyle.HorizontalAlign.CENTER));
+                    table.addCell(rs.getString("name"), new CellStyle(CellStyle.HorizontalAlign.CENTER));
+                    table.addCell(rs.getString("description"), new CellStyle(CellStyle.HorizontalAlign.CENTER));
+                    table.addCell(String.valueOf(rs.getInt("item_id")), new CellStyle(CellStyle.HorizontalAlign.CENTER));
+                    table.addCell(rs.getString("size"), new CellStyle(CellStyle.HorizontalAlign.CENTER));
+                    table.addCell(String.format("$%.2f", rs.getDouble("base_price")), new CellStyle(CellStyle.HorizontalAlign.CENTER));
+                    table.addCell(String.format("$%.2f", rs.getDouble("sell_price")), new CellStyle(CellStyle.HorizontalAlign.CENTER));
+                    table.addCell(String.format("$%.2f", rs.getDouble("discount")), new CellStyle(CellStyle.HorizontalAlign.CENTER));
                 }
                 if (table != null) {
                     System.out.println(table.render());
@@ -75,23 +75,23 @@ public class MenuItemManager {
                         }
                         currentCategory = category;
                         System.out.println("\n--- " + currentCategory + " ---");
-                        table = new Table(7, BorderStyle.UNICODE_BOX_WIDE, ShownBorders.ALL);
-                        table.addCell("No.", new CellStyle(CellStyle.HorizontalAlign.center));
-                        table.addCell("Name", new CellStyle(CellStyle.HorizontalAlign.center));
-                        table.addCell("Description", new CellStyle(CellStyle.HorizontalAlign.center));
-                        table.addCell("Item ID", new CellStyle(CellStyle.HorizontalAlign.center));
-                        table.addCell("Size", new CellStyle(CellStyle.HorizontalAlign.center));
-                        table.addCell("Sell Price", new CellStyle(CellStyle.HorizontalAlign.center));
-                        table.addCell("Discount", new CellStyle(CellStyle.HorizontalAlign.center));
+                        table = new Table(7, BorderStyle.UNICODE_ROUND_BOX_WIDE, ShownBorders.ALL);
+                        table.addCell("No.", new CellStyle(CellStyle.HorizontalAlign.CENTER));
+                        table.addCell("Name", new CellStyle(CellStyle.HorizontalAlign.CENTER));
+                        table.addCell("Description", new CellStyle(CellStyle.HorizontalAlign.CENTER));
+                        table.addCell("Item ID", new CellStyle(CellStyle.HorizontalAlign.CENTER));
+                        table.addCell("Size", new CellStyle(CellStyle.HorizontalAlign.CENTER));
+                        table.addCell("Sell Price", new CellStyle(CellStyle.HorizontalAlign.CENTER));
+                        table.addCell("Discount", new CellStyle(CellStyle.HorizontalAlign.CENTER));
                         count = 1; // Reset count for new category
                     }
-                    table.addCell(String.valueOf(count++), new CellStyle(CellStyle.HorizontalAlign.center));
-                    table.addCell(rs.getString("name"), new CellStyle(CellStyle.HorizontalAlign.center));
-                    table.addCell(rs.getString("description"), new CellStyle(CellStyle.HorizontalAlign.center));
-                    table.addCell(String.valueOf(rs.getInt("item_id")), new CellStyle(CellStyle.HorizontalAlign.center));
-                    table.addCell(rs.getString("size"), new CellStyle(CellStyle.HorizontalAlign.center));
-                    table.addCell(String.format("$%.2f", rs.getDouble("sell_price")), new CellStyle(CellStyle.HorizontalAlign.center));
-                    table.addCell(String.format("$%.2f", rs.getDouble("discount")), new CellStyle(CellStyle.HorizontalAlign.center));
+                    table.addCell(String.valueOf(count++), new CellStyle(CellStyle.HorizontalAlign.CENTER));
+                    table.addCell(rs.getString("name"), new CellStyle(CellStyle.HorizontalAlign.CENTER));
+                    table.addCell(rs.getString("description"), new CellStyle(CellStyle.HorizontalAlign.CENTER));
+                    table.addCell(String.valueOf(rs.getInt("item_id")), new CellStyle(CellStyle.HorizontalAlign.CENTER));
+                    table.addCell(rs.getString("size"), new CellStyle(CellStyle.HorizontalAlign.CENTER));
+                    table.addCell(String.format("$%.2f", rs.getDouble("sell_price")), new CellStyle(CellStyle.HorizontalAlign.CENTER));
+                    table.addCell(String.format("$%.2f", rs.getDouble("discount")), new CellStyle(CellStyle.HorizontalAlign.CENTER));
                 }
                 if (table != null) {
                     System.out.println(table.render());
@@ -109,43 +109,144 @@ public class MenuItemManager {
             int itemId = scanner.nextInt();
             scanner.nextLine(); // Consume newline
 
-            System.out.print("Enter new name (press Enter to skip): ");
-            String name = scanner.nextLine().trim();
+            // Fetch existing item details
+            String fetchSql = "SELECT * FROM menuitemsadmin WHERE item_id = ?";
+            try (PreparedStatement fetchStmt = conn.prepareStatement(fetchSql)) {
+                fetchStmt.setInt(1, itemId);
+                ResultSet rs = fetchStmt.executeQuery();
 
-            System.out.print("Enter new description (press Enter to skip): ");
-            String description = scanner.nextLine().trim();
+                if (!rs.next()) {
+                    System.out.println("❌ Item ID not found.");
+                    return;
+                }
 
-            System.out.print("Enter new base price (press Enter to skip): ");
-            String basePriceInput = scanner.nextLine().trim();
-            Double basePrice = basePriceInput.isEmpty() ? null : Double.parseDouble(basePriceInput);
+                // Existing values
+                String currentName = rs.getString("name");
+                String currentDescription = rs.getString("description");
+                Double currentBasePrice = rs.getDouble("base_price");
+                Double currentSellPrice = rs.getDouble("sell_price");
+                Double currentDiscount = rs.getDouble("discount");
+                String currentSize = rs.getString("size");
 
-            System.out.print("Enter new sell price (press Enter to skip): ");
-            String sellPriceInput = scanner.nextLine().trim();
-            Double sellPrice = sellPriceInput.isEmpty() ? null : Double.parseDouble(sellPriceInput);
+                // Validate Item Name
+                String name;
+                while (true) {
+                    System.out.print("Enter new name (press Enter to skip): ");
+                    name = scanner.nextLine().trim();
+                    if (name.isEmpty()) {
+                        name = currentName; // Keep existing name if skipped
+                        break;
+                    } else if (!name.matches("[a-zA-Z0-9\\s]+")) {
+                        System.out.println("❌ Invalid item name. Only alphanumeric characters and spaces are allowed.");
+                    } else {
+                        break; // Valid name
+                    }
+                }
 
-            System.out.print("Enter new discount (press Enter to skip): ");
-            String discountInput = scanner.nextLine().trim();
-            Double discount = discountInput.isEmpty() ? null : Double.parseDouble(discountInput);
+                // Optional Description
+                System.out.print("Enter new description (press Enter to skip): ");
+                String description = scanner.nextLine().trim();
+                if (description.isEmpty()) {
+                    description = currentDescription; // Keep existing description if skipped
+                }
 
-            String sql = "UPDATE menuitemsadmin SET " +
-                    (name.isEmpty() ? "" : "name = ?, ") +
-                    (description.isEmpty() ? "" : "description = ?, ") +
-                    (basePrice == null ? "" : "base_price = ?, ") +
-                    (sellPrice == null ? "" : "sell_price = ?, ") +
-                    (discount == null ? "" : "discount = ? ") +
-                    "WHERE item_id = ?";
-            sql = sql.replaceAll(", WHERE", " WHERE");
+                // Validate Size
+                String size;
+                while (true) {
+                    System.out.print("Enter new size [(S, M, L, XL, etc.) or press Enter to skip]: ");
+                    size = scanner.nextLine().trim().toUpperCase();
+                    if (size.isEmpty()) {
+                        size = currentSize; // Keep existing size if skipped
+                        break;
+                    } else if (!size.matches("[A-Z]+")) {
+                        System.out.println("❌ Invalid size. Only uppercase letters (e.g., S, M, L, XL) are allowed.");
+                    } else {
+                        break; // Valid size
+                    }
+                }
 
-            try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
-                int index = 1;
-                if (!name.isEmpty()) pstmt.setString(index++, name);
-                if (!description.isEmpty()) pstmt.setString(index++, description);
-                if (basePrice != null) pstmt.setDouble(index++, basePrice);
-                if (sellPrice != null) pstmt.setDouble(index++, sellPrice);
-                if (discount != null) pstmt.setDouble(index++, discount);
-                pstmt.setInt(index, itemId);
-                pstmt.executeUpdate();
-                System.out.println("Menu item updated successfully!");
+                // Validate Base Price
+                double basePrice = currentBasePrice;
+                while (true) {
+                    System.out.print("Enter new base price (press Enter to skip): ");
+                    String basePriceInput = scanner.nextLine().trim();
+                    if (basePriceInput.isEmpty()) {
+                        break; // Keep existing base price if skipped
+                    }
+                    try {
+                        basePrice = Double.parseDouble(basePriceInput);
+                        if (basePrice <= 0) {
+                            System.out.println("❌ Base price must be greater than 0.");
+                        } else {
+                            break; // Valid base price
+                        }
+                    } catch (NumberFormatException e) {
+                        System.out.println("❌ Invalid input. Please enter a valid numeric value for base price.");
+                    }
+                }
+
+                // Validate Sell Price
+                double sellPrice = currentSellPrice;
+                while (true) {
+                    System.out.print("Enter new sell price (press Enter to skip): ");
+                    String sellPriceInput = scanner.nextLine().trim();
+                    if (sellPriceInput.isEmpty()) {
+                        break; // Keep existing sell price if skipped
+                    }
+                    try {
+                        sellPrice = Double.parseDouble(sellPriceInput);
+                        if (sellPrice <= 0) {
+                            System.out.println("❌ Sell price must be greater than 0.");
+                        } else if (sellPrice < basePrice) {
+                            System.out.println("❌ Sell price cannot be less than the base price.");
+                        } else {
+                            break; // Valid sell price
+                        }
+                    } catch (NumberFormatException e) {
+                        System.out.println("❌ Invalid input. Please enter a valid numeric value for sell price.");
+                    }
+                }
+
+                // Validate Discount
+                double discount = currentDiscount;
+                while (true) {
+                    System.out.print("Enter new discount (press Enter to skip): ");
+                    String discountInput = scanner.nextLine().trim();
+                    if (discountInput.isEmpty()) {
+                        break; // Keep existing discount if skipped
+                    }
+                    try {
+                        discount = Double.parseDouble(discountInput);
+                        if (discount < 0 || discount > sellPrice) {
+                            System.out.println("❌ Discount must be between 0 and the sell price.");
+                        } else {
+                            break; // Valid discount
+                        }
+                    } catch (NumberFormatException e) {
+                        System.out.println("❌ Invalid input. Please enter a valid numeric value for discount.");
+                    }
+                }
+
+                // SQL Query
+                String sql = "UPDATE menuitemsadmin SET " +
+                        "name = ?, " +
+                        "description = ?, " +
+                        "size = ?, " +
+                        "base_price = ?, " +
+                        "sell_price = ?, " +
+                        "discount = ? " +
+                        "WHERE item_id = ?";
+                try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+                    pstmt.setString(1, name);
+                    pstmt.setString(2, description);
+                    pstmt.setString(3, size); // Null if skipped
+                    pstmt.setDouble(4, basePrice);
+                    pstmt.setDouble(5, sellPrice);
+                    pstmt.setDouble(6, discount);
+                    pstmt.setInt(7, itemId);
+                    pstmt.executeUpdate();
+                    System.out.println("✅ Menu item updated successfully!");
+                }
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -172,39 +273,126 @@ public class MenuItemManager {
             e.printStackTrace();
         }
     }
+    private static final List<String> VALID_CATEGORIES = Arrays.asList("Appetizers", "Main Course", "Beverages", "Desserts");
+
+    // ------------------ Validate Category ------------------
+    public static String validateCategory(Scanner scanner) {
+        System.out.println("\n--- Select a Category ---");
+        for (int i = 0; i < VALID_CATEGORIES.size(); i++) {
+            System.out.println((i + 1) + ". " + VALID_CATEGORIES.get(i));
+        }
+
+        while (true) {
+            System.out.print("Enter the category number: ");
+            String input = scanner.nextLine().trim();
+
+            try {
+                int choice = Integer.parseInt(input);
+                if (choice >= 1 && choice <= VALID_CATEGORIES.size()) {
+                    return VALID_CATEGORIES.get(choice - 1); // Return the selected category
+                } else {
+                    System.out.println("❌ Invalid choice. Please select a number between 1 and " + VALID_CATEGORIES.size() + ".");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("❌ Invalid input. Please enter a numeric value.");
+            }
+        }
+    }
 
     // ------------------ Add Multiple Menu Items ------------------
     public static void addMenuItem(Scanner scanner) {
         try (Connection conn = DatabaseConnection.getConnection()) {
-            System.out.print("Enter item name: ");
-            String name = scanner.nextLine().trim();
-
-            // Predefined categories
-            String[] categories = {"Appetizers", "Main Course", "Beverages", "Desserts"};
-            System.out.println("Choose a category:");
-            for (int i = 0; i < categories.length; i++) {
-                System.out.println((i + 1) + ". " + categories[i]);
+            // Validate Item Name
+            String name;
+            while (true) {
+                System.out.print("Enter item name: ");
+                name = scanner.nextLine().trim();
+                if (name.isEmpty()) {
+                    System.out.println("❌ Item name cannot be empty. Please try again.");
+                } else if (!name.matches("[a-zA-Z0-9\\s]+")) {
+                    System.out.println("❌ Invalid item name. Only alphanumeric characters and spaces are allowed.");
+                } else {
+                    break; // Valid name
+                }
             }
-            int categoryChoice = scanner.nextInt();
-            scanner.nextLine(); // Consume newline
-            String category = categories[categoryChoice - 1];
 
+// Validate Category
+            String category = validateCategory(scanner);
+
+            // Optional Description
             System.out.print("Enter item description (optional): ");
             String description = scanner.nextLine().trim();
 
-            System.out.print("Enter size [(S, M, L, XL, etc.) or press Enter to skip]: ");
-            String size = scanner.nextLine().trim().toUpperCase();
+            // Validate Size
+            String size;
+            while (true) {
+                System.out.print("Enter size [(S, M, L, XL, etc.) or press Enter to skip]: ");
+                size = scanner.nextLine().trim().toUpperCase();
+                if (size.isEmpty()) {
+                    size = null; // Allow skipping size
+                    break;
+                } else if (!size.matches("[A-Z]+")) {
+                    System.out.println("❌ Invalid size. Only uppercase letters (e.g., S, M, L, XL) are allowed.");
+                } else {
+                    break; // Valid size
+                }
+            }
 
-            System.out.print("Enter base price: ");
-            double basePrice = scanner.nextDouble();
+            // Validate Base Price
+            double basePrice;
+            while (true) {
+                System.out.print("Enter base price: ");
+                String basePriceInput = scanner.nextLine().trim();
+                try {
+                    basePrice = Double.parseDouble(basePriceInput);
+                    if (basePrice <= 0) {
+                        System.out.println("❌ Base price must be greater than 0.");
+                    } else {
+                        break; // Valid base price
+                    }
+                } catch (NumberFormatException e) {
+                    System.out.println("❌ Invalid input. Please enter a valid numeric value for base price.");
+                }
+            }
 
-            System.out.print("Enter sell price: ");
-            double sellPrice = scanner.nextDouble();
+            // Validate Sell Price
+            double sellPrice;
+            while (true) {
+                System.out.print("Enter sell price: ");
+                String sellPriceInput = scanner.nextLine().trim();
+                try {
+                    sellPrice = Double.parseDouble(sellPriceInput);
+                    if (sellPrice <= 0) {
+                        System.out.println("❌ Sell price must be greater than 0.");
+                    } else if (sellPrice < basePrice) {
+                        System.out.println("❌ Sell price cannot be less than the base price.");
+                    } else {
+                        break; // Valid sell price
+                    }
+                } catch (NumberFormatException e) {
+                    System.out.println("❌ Invalid input. Please enter a valid numeric value for sell price.");
+                }
+            }
 
-            System.out.print("Enter discount (press Enter to skip): ");
-            scanner.nextLine(); // Consume newline
-            String discountInput = scanner.nextLine().trim();
-            double discount = discountInput.isEmpty() ? 0.0 : Double.parseDouble(discountInput);
+            // Validate Discount
+            double discount = 0.0;
+            while (true) {
+                System.out.print("Enter discount (press Enter to skip): ");
+                String discountInput = scanner.nextLine().trim();
+                if (discountInput.isEmpty()) {
+                    break; // Allow skipping discount
+                }
+                try {
+                    discount = Double.parseDouble(discountInput);
+                    if (discount < 0 || discount > sellPrice) {
+                        System.out.println("❌ Discount must be between 0 and the sell price.");
+                    } else {
+                        break; // Valid discount
+                    }
+                } catch (NumberFormatException e) {
+                    System.out.println("❌ Invalid input. Please enter a valid numeric value for discount.");
+                }
+            }
 
             // SQL Query
             String sql = "INSERT INTO menuitemsadmin (name, description, category, size, base_price, sell_price, discount) VALUES (?, ?, ?, ?, ?, ?, ?)";
@@ -212,12 +400,12 @@ public class MenuItemManager {
                 pstmt.setString(1, name);
                 pstmt.setString(2, description);
                 pstmt.setString(3, category);
-                pstmt.setString(4, size.isEmpty() ? null : size);
+                pstmt.setString(4, size); // Null if skipped
                 pstmt.setDouble(5, basePrice);
                 pstmt.setDouble(6, sellPrice);
                 pstmt.setDouble(7, discount);
                 pstmt.executeUpdate();
-                System.out.println("Menu item added successfully!");
+                System.out.println("✅ Menu item added successfully!");
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -232,7 +420,7 @@ public class MenuItemManager {
             while (rs.next()) {
                 String category = rs.getString("category");
                 System.out.println("\n--- " + category + " ---");
-                displayItemsByCategory(category);
+                displayItemsByCategory1(category);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -246,19 +434,19 @@ public class MenuItemManager {
                 pstmt.setString(1, category);
                 try (ResultSet rs = pstmt.executeQuery()) {
                     System.out.println("\n--- " + category + " ---");
-                    Table table = new Table(5, BorderStyle.UNICODE_BOX_WIDE, ShownBorders.ALL);
-                    table.addCell("ID", new CellStyle(CellStyle.HorizontalAlign.center));
-                    table.addCell("Name", new CellStyle(CellStyle.HorizontalAlign.center));
-                    table.addCell("Category", new CellStyle(CellStyle.HorizontalAlign.center));
-                    table.addCell("Price", new CellStyle(CellStyle.HorizontalAlign.center));
-                    table.addCell("Discount", new CellStyle(CellStyle.HorizontalAlign.center));
+                    Table table = new Table(5, BorderStyle.DEMO, ShownBorders.ALL);
+                    table.addCell("ID", new CellStyle(CellStyle.HorizontalAlign.CENTER));
+                    table.addCell("Name", new CellStyle(CellStyle.HorizontalAlign.CENTER));
+                    table.addCell("Category", new CellStyle(CellStyle.HorizontalAlign.CENTER));
+                    table.addCell("Price", new CellStyle(CellStyle.HorizontalAlign.CENTER));
+                    table.addCell("Discount", new CellStyle(CellStyle.HorizontalAlign.CENTER));
 
                     while (rs.next()) {
-                        table.addCell(String.valueOf(rs.getInt("item_id")), new CellStyle(CellStyle.HorizontalAlign.center));
-                        table.addCell(rs.getString("name"), new CellStyle(CellStyle.HorizontalAlign.center));
-                        table.addCell(rs.getString("category"), new CellStyle(CellStyle.HorizontalAlign.center));
-                        table.addCell(String.format("$%.2f", rs.getDouble("sell_price")), new CellStyle(CellStyle.HorizontalAlign.center));
-                        table.addCell(String.format("$%.2f", rs.getDouble("discount")), new CellStyle(CellStyle.HorizontalAlign.center));
+                        table.addCell(String.valueOf(rs.getInt("item_id")), new CellStyle(CellStyle.HorizontalAlign.CENTER));
+                        table.addCell(rs.getString("name"), new CellStyle(CellStyle.HorizontalAlign.CENTER));
+                        table.addCell(rs.getString("category"), new CellStyle(CellStyle.HorizontalAlign.CENTER));
+                        table.addCell(String.format("$%.2f", rs.getDouble("sell_price")), new CellStyle(CellStyle.HorizontalAlign.CENTER));
+                        table.addCell(String.format("$%.2f", rs.getDouble("discount")), new CellStyle(CellStyle.HorizontalAlign.CENTER));
                     }
                     System.out.println(table.render());
                 }
@@ -307,4 +495,27 @@ public class MenuItemManager {
                 return "Unknown";
         }
     }
+
+    public static void displayItemsByCategory1(String category) {
+        Scanner scanner = new Scanner(System.in);
+        OrderService orderService = new OrderService();
+
+        List<String> categories = orderService.getCategories();
+        if (categories.isEmpty()) {
+            System.out.println("No categories available.");
+            return;
+        }
+
+        System.out.println("\n--- Select a Category ---");
+        for (int i = 0; i < categories.size(); i++) {
+            System.out.println((i + 1) + ". " + categories.get(i));
+        }
+
+        int categoryChoice = Utils.validateIntegerInput(scanner, "Enter the category number ([b] to go back): ", 1, categories.size());
+        if (categoryChoice == -1) return;
+
+        String selectedCategory = categories.get(categoryChoice - 1);
+        orderService.displayItemsByCategory(selectedCategory);
+    }
+
 }

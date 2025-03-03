@@ -40,27 +40,27 @@ public class StaffManager {
              ResultSet rs = stmt.executeQuery(sql)) {
 
             Table table = new Table(9, BorderStyle.UNICODE_BOX_WIDE, ShownBorders.ALL);
-            table.addCell("No.", new CellStyle(CellStyle.HorizontalAlign.center));
-            table.addCell("UUID", new CellStyle(CellStyle.HorizontalAlign.center));
-            table.addCell("Full Name", new CellStyle(CellStyle.HorizontalAlign.center));
-            table.addCell("Username", new CellStyle(CellStyle.HorizontalAlign.center));
-            table.addCell("Password", new CellStyle(CellStyle.HorizontalAlign.center));
-            table.addCell("Email", new CellStyle(CellStyle.HorizontalAlign.center));
-            table.addCell("Phone Number", new CellStyle(CellStyle.HorizontalAlign.center));
-            table.addCell("Role", new CellStyle(CellStyle.HorizontalAlign.center));
-            table.addCell("Date Added", new CellStyle(CellStyle.HorizontalAlign.center));
+            table.addCell("No.", new CellStyle(CellStyle.HorizontalAlign.CENTER));
+            table.addCell("UUID", new CellStyle(CellStyle.HorizontalAlign.CENTER));
+            table.addCell("Full Name", new CellStyle(CellStyle.HorizontalAlign.CENTER));
+            table.addCell("Username", new CellStyle(CellStyle.HorizontalAlign.CENTER));
+            table.addCell("Password", new CellStyle(CellStyle.HorizontalAlign.CENTER));
+            table.addCell("Email", new CellStyle(CellStyle.HorizontalAlign.CENTER));
+            table.addCell("Phone Number", new CellStyle(CellStyle.HorizontalAlign.CENTER));
+            table.addCell("Role", new CellStyle(CellStyle.HorizontalAlign.CENTER));
+            table.addCell("Date Added", new CellStyle(CellStyle.HorizontalAlign.CENTER));
 
             int count = 1;
             while (rs.next()) {
-                table.addCell(String.valueOf(count++), new CellStyle(CellStyle.HorizontalAlign.center));
-                table.addCell(rs.getObject("uuid").toString(), new CellStyle(CellStyle.HorizontalAlign.center));
-                table.addCell(rs.getString("full_name"), new CellStyle(CellStyle.HorizontalAlign.center));
-                table.addCell(rs.getString("userName"), new CellStyle(CellStyle.HorizontalAlign.center));
-                table.addCell(rs.getString("password"), new CellStyle(CellStyle.HorizontalAlign.center));
-                table.addCell(rs.getString("email"), new CellStyle(CellStyle.HorizontalAlign.center));
-                table.addCell(rs.getString("phone_number"), new CellStyle(CellStyle.HorizontalAlign.center));
-                table.addCell(rs.getString("role"), new CellStyle(CellStyle.HorizontalAlign.center));
-                table.addCell(rs.getTimestamp("date_time_added").toString(), new CellStyle(CellStyle.HorizontalAlign.center));
+                table.addCell(String.valueOf(count++), new CellStyle(CellStyle.HorizontalAlign.CENTER));
+                table.addCell(rs.getObject("uuid").toString(), new CellStyle(CellStyle.HorizontalAlign.CENTER));
+                table.addCell(rs.getString("full_name"), new CellStyle(CellStyle.HorizontalAlign.CENTER));
+                table.addCell(rs.getString("userName"), new CellStyle(CellStyle.HorizontalAlign.CENTER));
+                table.addCell(rs.getString("password"), new CellStyle(CellStyle.HorizontalAlign.CENTER));
+                table.addCell(rs.getString("email"), new CellStyle(CellStyle.HorizontalAlign.CENTER));
+                table.addCell(rs.getString("phone_number"), new CellStyle(CellStyle.HorizontalAlign.CENTER));
+                table.addCell(rs.getString("role"), new CellStyle(CellStyle.HorizontalAlign.CENTER));
+                table.addCell(rs.getTimestamp("date_time_added").toString(), new CellStyle(CellStyle.HorizontalAlign.CENTER));
             }
             System.out.println(table.render());
         } catch (SQLException e) {

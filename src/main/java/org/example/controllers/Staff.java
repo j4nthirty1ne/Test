@@ -60,24 +60,24 @@ public class Staff {
             try (Statement stmt = conn.createStatement(); ResultSet rs = stmt.executeQuery(sql)) {
                 System.out.println("\n--------- CUSTOMER ORDERS ---------");
 
-                Table table = new Table(6, BorderStyle.UNICODE_BOX_WIDE, ShownBorders.ALL);
-                table.addCell("No.", new CellStyle(CellStyle.HorizontalAlign.center));
-                table.addCell("Order ID", new CellStyle(CellStyle.HorizontalAlign.center));
-                table.addCell("Name", new CellStyle(CellStyle.HorizontalAlign.center));
-                table.addCell("Item ID", new CellStyle(CellStyle.HorizontalAlign.center));
-                table.addCell("Quantity", new CellStyle(CellStyle.HorizontalAlign.center));
-                table.addCell("Total Price", new CellStyle(CellStyle.HorizontalAlign.center));
-                table.addCell("Payment Method", new CellStyle(CellStyle.HorizontalAlign.center));
+                Table table = new Table(7, BorderStyle.UNICODE_BOX_WIDE, ShownBorders.ALL);
+                table.addCell("No.", new CellStyle(CellStyle.HorizontalAlign.CENTER));
+                table.addCell("Order ID", new CellStyle(CellStyle.HorizontalAlign.CENTER));
+                table.addCell("Name", new CellStyle(CellStyle.HorizontalAlign.CENTER));
+                table.addCell("Item ID", new CellStyle(CellStyle.HorizontalAlign.CENTER));
+                table.addCell("Quantity", new CellStyle(CellStyle.HorizontalAlign.CENTER));
+                table.addCell("Total Price", new CellStyle(CellStyle.HorizontalAlign.CENTER));
+                table.addCell("Payment Method", new CellStyle(CellStyle.HorizontalAlign.CENTER));
 
                 int count = 1;
                 while (rs.next()) {
-                    table.addCell(String.valueOf(count++), new CellStyle(CellStyle.HorizontalAlign.center));
-                    table.addCell(String.valueOf(rs.getInt("order_id")), new CellStyle(CellStyle.HorizontalAlign.center));
-                    table.addCell(rs.getString("name"), new CellStyle(CellStyle.HorizontalAlign.center));
-                    table.addCell(String.valueOf(rs.getInt("item_id")), new CellStyle(CellStyle.HorizontalAlign.center));
-                    table.addCell(String.valueOf(rs.getInt("quantity")), new CellStyle(CellStyle.HorizontalAlign.center));
-                    table.addCell(String.format("$%.2f", rs.getDouble("total_price")), new CellStyle(CellStyle.HorizontalAlign.center));
-                    table.addCell(rs.getString("payment_method"), new CellStyle(CellStyle.HorizontalAlign.center));
+                    table.addCell(String.valueOf(count++), new CellStyle(CellStyle.HorizontalAlign.CENTER));
+                    table.addCell(String.valueOf(rs.getInt("order_id")), new CellStyle(CellStyle.HorizontalAlign.CENTER));
+                    table.addCell(rs.getString("name"), new CellStyle(CellStyle.HorizontalAlign.CENTER));
+                    table.addCell(String.valueOf(rs.getInt("item_id")), new CellStyle(CellStyle.HorizontalAlign.CENTER));
+                    table.addCell(String.valueOf(rs.getInt("quantity")), new CellStyle(CellStyle.HorizontalAlign.CENTER));
+                    table.addCell(String.format("$%.2f", rs.getDouble("total_price")), new CellStyle(CellStyle.HorizontalAlign.CENTER));
+                    table.addCell(rs.getString("payment_method"), new CellStyle(CellStyle.HorizontalAlign.CENTER));
                 }
 
                 // Print the table

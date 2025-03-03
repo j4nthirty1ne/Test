@@ -36,12 +36,12 @@ public class CategoryManager {
         }
 
         Table table = new Table(2, BorderStyle.UNICODE_BOX_WIDE, ShownBorders.ALL);
-        table.addCell("ID", new CellStyle(CellStyle.HorizontalAlign.center));
-        table.addCell("Category Name", new CellStyle(CellStyle.HorizontalAlign.center));
+        table.addCell("ID", new CellStyle(CellStyle.HorizontalAlign.CENTER));
+        table.addCell("Category Name", new CellStyle(CellStyle.HorizontalAlign.CENTER));
 
         for (int i = 0; i < categories.size(); i++) {
-            table.addCell(String.valueOf(i + 1), new CellStyle(CellStyle.HorizontalAlign.center));
-            table.addCell(categories.get(i), new CellStyle(CellStyle.HorizontalAlign.center));
+            table.addCell(String.valueOf(i + 1), new CellStyle(CellStyle.HorizontalAlign.CENTER));
+            table.addCell(categories.get(i), new CellStyle(CellStyle.HorizontalAlign.CENTER));
         }
         System.out.println(table.render());
     }
@@ -110,7 +110,7 @@ public class CategoryManager {
             if (conn == null) return;
 
             // 1. Remove menu items under this category
-            String deleteMenuItems = "DELETE FROM menu_items WHERE category = ?";
+            String deleteMenuItems = "DELETE FROM menuitemsadmin WHERE category = ?";
             try (PreparedStatement pstmt = conn.prepareStatement(deleteMenuItems)) {
                 pstmt.setString(1, categoryToRemove);
                 pstmt.executeUpdate();

@@ -57,14 +57,14 @@ public class Utils {
             return;
         }
 
-        Table table = new Table(8, BorderStyle.UNICODE_BOX_WIDE, ShownBorders.ALL);
+        Table table = new Table(8, BorderStyle.UNICODE_HEAVY_BOX, ShownBorders.ALL);
 
         String[] header1 = {"Category"};
         String[] headers = {"ID", "Name", "Description", "Size" , "Base Price", "Sell Price" , "Discount", "Final Price"};
 
 
         for (String header : headers) {
-            table.addCell(header, new CellStyle(CellStyle.HorizontalAlign.center));
+            table.addCell(header, new CellStyle(CellStyle.HorizontalAlign.CENTER));
         }
 
         for (Map<String, Object> menuItem : items) {

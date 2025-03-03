@@ -4,7 +4,6 @@ import java.util.*;
 
 import static org.example.services.MenuItemManager.viewMenuItemsCustomer;
 
-
 public class CustomerController {
     private Scanner scanner = new Scanner(System.in);
     private OrderService orderService = new OrderService();

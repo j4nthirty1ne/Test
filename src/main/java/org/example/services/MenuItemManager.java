@@ -460,7 +460,7 @@ public class MenuItemManager {
     public static List<Map<String, Object>> getAllMenuItems() {
         List<Map<String, Object>> menuItems = new ArrayList<>();
         try (Connection conn = DatabaseConnection.getConnection()) {
-            String sql = "SELECT * FROM menu_items";
+            String sql = "SELECT * FROM menuitemsadmin";
             try (Statement stmt = conn.createStatement(); ResultSet rs = stmt.executeQuery(sql)) {
                 while (rs.next()) {
                     Map<String, Object> item = new HashMap<>();

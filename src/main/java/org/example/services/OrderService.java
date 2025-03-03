@@ -180,7 +180,7 @@ public class OrderService {
         Timestamp orderTimestamp = Timestamp.valueOf(currentDateTime);
 
         String orderQuery = "INSERT INTO orders (payment_method, total_amount, order_date) VALUES (?, ?, ?)";
-        String orderItemsQuery = "INSERT INTO order_items (order_id, item_id, name, quantity, sell_price, discount, total_price, order_date, payment_method) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String orderItemsQuery = "INSERT INTO order_items (order_id, item_id, name, quantity, base_price, sell_price, discount, total_price, order_date, payment_method) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement orderStmt = conn.prepareStatement(orderQuery, Statement.RETURN_GENERATED_KEYS);
@@ -213,11 +213,12 @@ public class OrderService {
                     orderItemsStmt.setInt(2, (int) item.get("item_id"));
                     orderItemsStmt.setString(3, name);
                     orderItemsStmt.setInt(4, quantity);
-                    orderItemsStmt.setDouble(5, sellPrice);
-                    orderItemsStmt.setDouble(6, discount);
-                    orderItemsStmt.setDouble(7, totalPrice);
-                    orderItemsStmt.setTimestamp(8, orderTimestamp);
-                    orderItemsStmt.setString(9, paymentMethodString);
+                    orderItemsStmt.setDouble(5, (double) item.get("base_price"));
+                    orderItemsStmt.setDouble(6, sellPrice);
+                    orderItemsStmt.setDouble(7, discount);
+                    orderItemsStmt.setDouble(8, totalPrice);
+                    orderItemsStmt.setTimestamp(9, orderTimestamp);
+                    orderItemsStmt.setString(10, paymentMethodString);
                     orderItemsStmt.addBatch();
                 }
                 orderItemsStmt.executeBatch();
@@ -277,7 +278,7 @@ public class OrderService {
                     System.out.println("Order ID: " + rs.getInt("order_id"));
                     System.out.println("Total Amount: $" + rs.getDouble("total_amount"));
                     System.out.println("Order Date: " + rs.getTimestamp("order_date"));
-                    System.out.println("Payment Method: " + (paymentMethod == 1 ? "Credit Card" : "Cash"));
+                    System.out.println("Payment Method: " + (paymentMethod == 1 ? "Credit Card" : paymentMethod == 2 ? "PayPal" : "Cash"));
                 } else {
                     System.out.println("❌ Order ID not found.");
                 }

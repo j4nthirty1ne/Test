@@ -63,16 +63,4 @@
 //    }
 //
 //    // Display QR Code in a JFrame popup
-////    public static void displayQRPopup(BufferedImage image) {
-////        ImageIcon icon = new ImageIcon(image);
-////        JLabel label = new JLabel(icon);
-////        JFrame frame = new JFrame("Scan QR Code");
-////        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-////        frame.setLayout(new BorderLayout());
-////        frame.add(label, BorderLayout.CENTER);
-////        frame.pack();
-////        frame.repaint();  // Force UI to refresh
-////        frame.setLocationRelativeTo(null); // Center the window
-////        frame.setVisible(true);
-////    }
 //}
